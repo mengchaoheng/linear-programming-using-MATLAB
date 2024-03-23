@@ -56,16 +56,22 @@ fval = 0;
 exitflag = 0;
 iterations = 0;
 % set default values to missing inputs
-if ~exist('maxIterations')
+if ~exist('MinMaxLP','var')
+	MinMaxLP = -1;
+end
+if ~exist('c0','var')
+	c0 = 0;
+end
+if ~exist('maxIterations','var')
 	maxIterations = 100;
 end
-if ~exist('tol')
+if ~exist('tol','var')
 	tol = 1e-8;
 end
-if ~exist('etaMin')
+if ~exist('etaMin','var')
 	etaMin = 0.995;
 end
-if ~exist('scalingTechnique')
+if ~exist('scalingTechnique','var')
 	scalingTechnique = 6;
 end
 [m, n] = size(A); % find the size of matrix A

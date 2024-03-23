@@ -55,51 +55,51 @@ function [xsol, fval, exitflag, iterations] = ...
 
 % set user defined values to options
 opts = optiset('solver', 'clp');
-if exist('algorithm')
+if exist('algorithm','var')
 	opts.solverOpts.algorithm = algorithm;
 end
-if exist('primalTol')
+if exist('primalTol','var')
 	opts.solverOpts.primalTol = primalTol;
 	opts.tolrfun = primalTol;
 end
-if exist('dualTol')
+if exist('dualTol','var')
 	opts.solverOpts.dualTol = dualTol;
 end
-if exist('maxIter')
+if exist('maxIter','var')
 	opts.maxiter = maxIter;
 else
     opts.maxiter = 1000000;
 end
-if exist('maxTime')
+if exist('maxTime','var')
 	opts.maxtime = maxTime;
 else
 	opts.maxtime = 1000000;
 end
-if exist('displayLevel')
+if exist('displayLevel','var')
 	opts.display = displayLevel;
 end
-if exist('objBias')
+if exist('objBias','var')
 	opts.solverOpts.objbias = objBias;
 end
-if exist('numPresolvePasses')
+if exist('numPresolvePasses','var')
 	opts.solverOpts.numPresolvePasses = numPresolvePasses;
 end
-if exist('factorFreq')
+if exist('factorFreq','var')
 	opts.solverOpts.factorFreq = factorFreq;
 end
-if exist('numberRefinements')
+if exist('numberRefinements','var')
 	opts.solverOpts.numberRefinements = numberRefinements;
 end
-if exist('primalObjLim')
+if exist('primalObjLim','var')
 	opts.solverOpts.primalObjLim = primalObjLim;
 end
-if exist('dualObjLim')
+if exist('dualObjLim','var')
 	opts.solverOpts.dualObjLim = dualObjLim;
 end
-if exist('numThreads')
+if exist('numThreads','var')
 	opts.solverOpts.numThreads = numThreads;
 end
-if exist('abcState')
+if exist('abcState','var')
 	opts.solverOpts.abcState = abcState;
 end
 % read the MPS file

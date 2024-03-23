@@ -66,31 +66,31 @@ fval = 0;
 exitflag = 0;
 iterations = 0;
 % set default values to missing inputs
-if ~exist('MinMaxLP')
+if ~exist('MinMaxLP','var')
 	MinMaxLP = -1;
 end
-if ~exist('c0')
+if ~exist('c0','var')
 	c0 = 0;
 end
-if ~exist('reinv')
+if ~exist('reinv','var')
 	reinv = 80;
 end
-if ~exist('tole1')
+if ~exist('tole1','var')
 	tole1 = 1e-7;
 end
-if ~exist('tole2')
+if ~exist('tole2','var')
 	tole2 = 1e-9;
 end
-if ~exist('tole3')
+if ~exist('tole3','var')
 	tole3 = 1e-9;
 end
-if ~exist('scalingTechnique')
+if ~exist('scalingTechnique','var')
 	scalingTechnique = 6;
 end
-if ~exist('pivotingRule')
+if ~exist('pivotingRule','var')
 	pivotingRule = 2;
 end
-if ~exist('basisUpdateMethod')
+if ~exist('basisUpdateMethod','var')
 	basisUpdateMethod = 1;
 end
 [m, n] = size(A); % find the size of matrix A
@@ -434,7 +434,7 @@ if flag == 0 % Phase I
                     BasisInv, Xb, tole3);
             % least recently considered
             elseif pivotingRule == 4
-                if ~exist('ind') % first time, start at zero
+                if ~exist('ind','var') % first time, start at zero
                     t = lrcm(Sn, NonBasicList, 0, ...
                         iterations);
                 else % continue from the last found index
@@ -600,7 +600,7 @@ if flag == 1 % Phase II
                     BasisInv, Xb, tole3);
             % least recently considered
             elseif pivotingRule == 4
-                if ~exist('ind') % first time, start at zero
+                if ~exist('ind','var') % first time, start at zero
                     t = lrcm(Sn, NonBasicList, 0, ...
                         iterations);
                 else % continue from the last found index

@@ -55,24 +55,24 @@ function [xsol, fval, exitflag, iterations] = ...
 
 % set user defined values to options
 cplex = Cplex;
-if exist('algorithm')
+if exist('algorithm','var')
 	cplex.Param.lpmethod.Cur = algorithm;
 end
-if exist('simplexTol')
+if exist('simplexTol','var')
 	cplex.Param.simplex.tolerances.optimality.Cur ...
         = simplexTol;
 end
-if exist('barrierTol')
+if exist('barrierTol','var')
 	cplex.Param.barrier.convergetol.Cur = barrierTol;
 end
 if exist('maxTime')
 	cplex.Param.timelimit.Cur = maxTime;
 end
-if exist('simplexMaxIter')
+if exist('simplexMaxIter','var')
 	cplex.Param.simplex.limits.iterations.Cur = ...
         simplexMaxIter;
 end
-if exist('barrierMaxIter')
+if exist('barrierMaxIter','var')
 	cplex.Param.barrier.limits.iteration.Cur = ...
         barrierMaxIter;
 end

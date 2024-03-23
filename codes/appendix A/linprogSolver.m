@@ -44,10 +44,10 @@ function [xsol, fval, exitflag, iterations] = ...
 % -- iterations: the number of iterations
 
 % set default values to missing inputs
-if ~exist('MinMaxLP')
+if ~exist('MinMaxLP','var')
 	MinMaxLP = -1;
 end
-if ~exist('c0')
+if ~exist('c0','var')
 	c0 = 0;
 end
 [m, n] = size(A); % find the size of matrix A
@@ -126,7 +126,7 @@ lb = zeros(n, 1); % create zero lower bounds
 options = optimoptions(@linprog, 'Algorithm', algorithm);
 % call the linprog solver
 [xsol, fval, exitflag, output] = linprog(c, A, b, ...
-    Aeq, beq, lb, [], [], options);
+    Aeq, beq, lb, [], options);
 iterations = output.iterations;
 % calculate the value of the objective function
 if MinMaxLP == 1 % maximization
