@@ -41,7 +41,7 @@ function [xsol, fval, exitflag, iterations] = ...
 %    6: equilibration, 7: geometric mean, 8: IBM MPSX, 
 %    9: LP-norm for the case p = 1, 10: LP-norm for 
 %    the case p = 2, 11: LP-norm for the case p = Inf) 
-%    (optional: default value 6)
+%    (optional: default value 0)
 % -- pivotingRule: the pivoting rule to be used
 %    (1: Bland's rule, 2: Dantzig's rule, 3: Greatest
 %    Increment Method, 4: Least Recently Considered 
@@ -85,7 +85,7 @@ if ~exist('tole3','var')
 	tole3 = 1e-9;
 end
 if ~exist('scalingTechnique','var')
-	scalingTechnique = 6;
+	scalingTechnique = 0;
 end
 if ~exist('pivotingRule','var')
 	pivotingRule = 2;
@@ -137,19 +137,19 @@ if MinMaxLP == 1
 	c0 = -c0;
 end
 % perform the presolve analysis
-disp('---- P R E S O L V E    A N A L Y S I S ----')
-[A, c, b, Eqin, c0, infeasible, unbounded] = ...
-	presolve(A, c, b, Eqin, c0);
-if infeasible == 1 % the LP problem is infeasible
-    disp('The LP problem is infeasible')
-	exitflag = 1;
-	return
-end
-if unbounded == 1 % the LP problem is unbounded
-    disp('The LP problem is unbounded')
-	exitflag = 2;
-	return
-end
+% disp('---- P R E S O L V E    A N A L Y S I S ----')
+% [A, c, b, Eqin, c0, infeasible, unbounded] = ...
+% 	presolve(A, c, b, Eqin, c0);
+% if infeasible == 1 % the LP problem is infeasible
+%     disp('The LP problem is infeasible')
+% 	exitflag = 1;
+% 	return
+% end
+% if unbounded == 1 % the LP problem is unbounded
+%     disp('The LP problem is unbounded')
+% 	exitflag = 2;
+% 	return
+% end
 [m, n] = size(A); % find the new size of matrix A
 [m2, ~] = size(c); % find the new size of vector c
 [m3, ~] = size(Eqin); % find the size of vector Eqin
