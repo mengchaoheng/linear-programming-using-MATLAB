@@ -60,7 +60,7 @@ for i = 1:m
             A([1:i - 1, i + 1:m], :) - ...
             A([1:i - 1, i + 1:m], f) * A(i, :);
         c0 = c0 + c(f) * b(i);
-        c = c - c(f) * A(i, :);
+        c = c - (c(f) * A(i, :))';% c is a n x 1 vector
         A(:, f) = [];
 		c(f) = [];
         Eqin(i) = -1;
