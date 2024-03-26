@@ -17,3 +17,10 @@ For corrections to the content in the published book, see the file errata.md.
 ## Contributions
 
 See the file Contributing.md for more information on how you can contribute to this repository.
+
+
+## change log
+1. change the default value of scalingTechnique and
+delete presolve analysis.
+
+2. fix `codes/chapter2/general2canonical.m`. % c is a n x 1 vector
